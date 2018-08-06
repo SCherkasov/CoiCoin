@@ -81,3 +81,10 @@ if let unwrappedCountry = countryOptional {
 }
 
 print(coins)
+
+let path = "/Users/igavrysh/Developer/mentoring/CoiCoin/CoiCoin/coins.plist"
+if let myDict = NSDictionary(contentsOfFile: path) {
+  var t = 1
+  print(t)
+}
+
