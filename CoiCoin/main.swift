@@ -33,7 +33,9 @@ extension Country: CustomStringConvertible {
 
 extension Coin: CustomStringConvertible {
   var description: String {
-    return "{coin: \(self.name) imageName: \(self.imageName) country: \(country)}"
+    return "{coin: \(self.name) "
+      + "imageName: \(self.imageName) "
+      + "country: \(country)}"
   }
 }
 
