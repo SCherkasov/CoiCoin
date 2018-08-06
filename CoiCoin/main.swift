@@ -67,19 +67,26 @@ var countryOptional = getCountry(name: "Ukraine", countries: countries)
 
 var coinOptional: Coin? = nil
 
-if countryOptional != nil {
-  let unwrappedCountry = countryOptional!
-  coinOptional = Coin?.some(Coin(name: "25 coins", imageName: "25_coins_image",
-                                 country: unwrappedCountry))
-} else {
-  print("error")
+if let unwrappedCountry = countryOptional {
+  coins.append(
+    Coin(
+      name: "25 coins",
+      imageName: "25_coins_image",
+      country: unwrappedCountry
+    )
+  )
+  
+  coins.append(
+    Coin(
+      name: "50 coins",
+      imageName: "50_coins_image",
+      country: unwrappedCountry
+    )
+  )
 }
 
-if coinOptional != nil {
-  let unwrappedCoin = coinOptional!
+if let unwrappedCoin = coinOptional {
   coins.append(unwrappedCoin)
-} else {
-  print("error")
 }
 
 print(coins)
