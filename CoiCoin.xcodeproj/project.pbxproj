@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		8A2B9B6721126C8B00B4551A /* CoiCoin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoiCoin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2B9B6A21126C8B00B4551A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		8AC41F1B2118FAE90047B883 /* coins.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = coins.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				8A2B9B6A21126C8B00B4551A /* main.swift */,
+				8AC41F1B2118FAE90047B883 /* coins.plist */,
 			);
 			path = CoiCoin;
 			sourceTree = "<group>";
