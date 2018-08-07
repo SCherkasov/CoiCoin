@@ -61,6 +61,7 @@ var countries = [Country]()
 countries.append(Country(name: "Ukraine", flagImageName: "ukraine_flag"))
 // Add the USA to countries array
 countries.append(Country(name: "USA", flagImageName: "usa_flag"))
+countries.append(Country(name: "USA", flagImageName: "usa_flag"))
 
 var coins = [Coin]()
 
@@ -97,13 +98,17 @@ func loadCoins(from fileName: String) -> [Coin] {
       let coinImageName = record["imageName"] as? String
       if let country = record["country"] as? [String: String],
         let countryName = country["name"],
-        let countryFlagImageName = country["flagImageName"] {
+        let countryFlagImageName = country["flagImageName"]
+      {
+        if country["name"] != country["name"] {
         countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
         print(countries)
+        }
       }
     }
   }
   //myCoin.append(Coin(name: coinName!, imageName: coinImageName!, country: ))
+  
   return coins
 }
 
