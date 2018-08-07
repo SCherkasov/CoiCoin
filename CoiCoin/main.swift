@@ -56,37 +56,6 @@ func getCountry(name: String, from countries: [Country]) -> Country? {
   return result
 }
 
-var countries = [Country]()
-// Add Ukraine to countries array
-countries.append(Country(name: "Ukraine", flagImageName: "ukraine_flag"))
-// Add the USA to countries array
-countries.append(Country(name: "USA", flagImageName: "usa_flag"))
-countries.append(Country(name: "USA", flagImageName: "usa_flag"))
-
-var coins = [Coin]()
-
-var countryOptional = getCountry(name: "Ukraine", from: countries)
-
-var coinOptional: Coin? = nil
-
-if let unwrappedCountry = countryOptional {
-  coins.append(
-    Coin(
-      name: "25 coins",
-      imageName: "25_coins_image",
-      country: unwrappedCountry
-    )
-  )
-  
-  coins.append(
-    Coin(
-      name: "50 coins",
-      imageName: "50_coins_image",
-      country: unwrappedCountry
-    )
-  )
-}
-
 func loadCoins(from fileName: String) -> [Coin] {
   var countries = [Country]()
   var coins = [Coin]()
@@ -98,15 +67,11 @@ func loadCoins(from fileName: String) -> [Coin] {
       let coinImageName = record["imageName"] as? String
       if let country = record["country"] as? [String: String],
         let countryName = country["name"],
-        let countryFlagImageName = country["flagImageName"]
+        let countryFlagImageName = country["flagImageName"],
+        getCountry(name: countryName, from: countries) != nil
       {
-        var call = getCountry(name: countryName, from: countries)
-        if  call == nil {
           countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
           print(countries)
-        } else {
-        print("\(country["name"]) is exist")
-        }
       }
     }
   }
@@ -116,5 +81,3 @@ func loadCoins(from fileName: String) -> [Coin] {
 }
 
 loadCoins(from: "plistName")
-
-if nil != nil  { print("none is not equal to none") }
