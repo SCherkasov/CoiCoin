@@ -70,13 +70,15 @@ func loadCoins(from fileName: String) -> [Coin] {
         getCountry(name: countryName, from: countries) == nil
       {
         countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
-        print(countries)
+        //print(countries)
       }
     }
   }
+  print(countries)
   //myCoin.append(Coin(name: coinName!, imageName: coinImageName!, country: ))
   
   return coins
 }
 
 loadCoins(from: "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist")
+
