@@ -86,29 +86,27 @@ if let unwrappedCountry = countryOptional {
   )
 }
 
-func loadCoins(from plistName: String) -> [Coin] {
+func loadCoins(from fileName: String) -> [Coin] {
   var countries = [Country]()
-  var myCoin = [Coin]()
-  let path = "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist"
-  if let myObjCNSDict = NSDictionary(contentsOfFile: path),
+  var coins = [Coin]()
+  let plistName = "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist"
+  if let myObjCNSDict = NSDictionary(contentsOfFile: plistName),
     let myDict = myObjCNSDict["coins"] as? [[String: AnyObject]] {
     for record in myDict {
       let coinName = record["name"] as? String
       let coinImageName = record["imageName"] as? String
-      if let country = record["country"] as? [String: String] {
-        if let countryName = country["name"] {
-          if let countryFlagImageName = country["flagImageName"] {
-            countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
-            print(countries)
-          }
-        }
+      if let country = record["country"] as? [String: String],
+        let countryName = country["name"],
+        let countryFlagImageName = country["flagImageName"] {
+        countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
+        print(countries)
       }
-      //myCoin.append(Coin(name: coinName!, imageName: coinImageName!, country: ))
     }
   }
+  //myCoin.append(Coin(name: coinName!, imageName: coinImageName!, country: ))
   return coins
 }
 
+loadCoins(from: "plistName")
 
 
-loadCoins(from: "coins")
