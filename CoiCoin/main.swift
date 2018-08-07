@@ -59,8 +59,7 @@ func getCountry(name: String, from countries: [Country]) -> Country? {
 func loadCoins(from fileName: String) -> [Coin] {
   var countries = [Country]()
   var coins = [Coin]()
-  let plistName = "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist"
-  if let myObjCNSDict = NSDictionary(contentsOfFile: plistName),
+  if let myObjCNSDict = NSDictionary(contentsOfFile: fileName),
     let myDict = myObjCNSDict["coins"] as? [[String: AnyObject]] {
     for record in myDict {
       let coinName = record["name"] as? String
@@ -68,10 +67,10 @@ func loadCoins(from fileName: String) -> [Coin] {
       if let country = record["country"] as? [String: String],
         let countryName = country["name"],
         let countryFlagImageName = country["flagImageName"],
-        getCountry(name: countryName, from: countries) != nil
+        getCountry(name: countryName, from: countries) == nil
       {
-          countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
-          print(countries)
+        countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
+        print(countries)
       }
     }
   }
@@ -80,4 +79,4 @@ func loadCoins(from fileName: String) -> [Coin] {
   return coins
 }
 
-loadCoins(from: "plistName")
+loadCoins(from: "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist")
