@@ -100,9 +100,12 @@ func loadCoins(from fileName: String) -> [Coin] {
         let countryName = country["name"],
         let countryFlagImageName = country["flagImageName"]
       {
-        if country["name"] != country["name"] {
-        countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
-        print(countries)
+        var call = getCountry(name: countryName, from: countries)
+        if  call == nil {
+          countries.append(Country(name: countryName, flagImageName: countryFlagImageName))
+          print(countries)
+        } else {
+        print("\(country["name"]) is exist")
         }
       }
     }
@@ -114,4 +117,4 @@ func loadCoins(from fileName: String) -> [Coin] {
 
 loadCoins(from: "plistName")
 
-
+if nil != nil  { print("none is not equal to none") }
