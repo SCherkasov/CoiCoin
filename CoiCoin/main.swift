@@ -59,22 +59,27 @@ func getCountry(name: String, from countries: [Country]) -> Country? {
 func loadCoins(from fileName: String) -> [Coin] {
   var countries = [Country]()
   var coins = [Coin]()
+  var country: Country
   
   if let myObjCNSDict = NSDictionary(contentsOfFile: fileName),
-    let myDict = myObjCNSDict["coins"] as? [[String: AnyObject]] {
-    for record in myDict {
-      if let coinName = record["name"] as? String,
-        let coinImageName = record["imageName"] as? String {
-        if let country = record["country"] as? [String: String],
-          let countryName = country["name"],
-          let countryFlagImageName = country["flagImageName"],
-          getCountry(name: countryName, from: countries) == nil
-        {
-          countries.append(Country(name: countryName,
-                                   flagImageName: countryFlagImageName))
-          
-          coins.append(Coin(name: coinName, imageName: coinImageName, country: <#T##Country#>))
-        }
+    let coinArray = myObjCNSDict["coins"] as? [[String: AnyObject]] {
+    
+    for coinDict in coinArray {
+      
+      if let country = coinDict["country"] as? [String: String],
+        let countryName = country["name"],
+        let countryFlagImageName = country["flagImageName"],
+        getCountry(name: countryName, from: countries) == nil
+      {
+        countries.append(Country(name: countryName,
+                                 flagImageName: countryFlagImageName))
+      }
+      
+      if let coinName = coinDict["name"] as? String,
+        let coinImageName = coinDict["imageName"] as? String,
+        country = getCountry(name: country.name, from: countries)
+      {
+        coins.append(Coin(name: coinName, imageName: coinImageName, country: country))
       }
     }
   }
@@ -84,4 +89,3 @@ func loadCoins(from fileName: String) -> [Coin] {
 }
 
 loadCoins(from: "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist")
-
