@@ -76,17 +76,19 @@ func loadCoins(from fileName: String) -> [Coin] {
       }
       
       if let country = coinDict["country"] as? [String: String],
-        let countryName = country["name"],
-        getCountry(name: countryName, from: countries) == nil,
+        let countryName = country["name"]
+      {
+        if getCountry(name: countryName, from: countries) != nil,
       let coinName = coinDict["name"] as? String,
         let coinImageName = coinDict["imageName"] as? String
       {
-        coins.append(Coin(name: coinName, imageName: coinImageName, country: country))
-        print("\(coinName) - \(coinImageName)")
+        coins.append(Coin(name: coinName, imageName: coinImageName, country: getCountry(name: countryName, from: countries)))
       }
+    }
     }
   }
   print(countries)
+  print(coins)
   
   return coins
 }
