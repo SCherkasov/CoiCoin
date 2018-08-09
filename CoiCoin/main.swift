@@ -59,7 +59,7 @@ func getCountry(name: String, from countries: [Country]) -> Country? {
 func loadCoins(from fileName: String) -> [Coin] {
   var countries = [Country]()
   var coins = [Coin]()
-  var country: Country
+  let myCountry: Country
   
   if let myObjCNSDict = NSDictionary(contentsOfFile: fileName),
     let coinArray = myObjCNSDict["coins"] as? [[String: AnyObject]] {
@@ -72,15 +72,15 @@ func loadCoins(from fileName: String) -> [Coin] {
         let coinName = coinDict["name"] as? String,
         let coinImageName = coinDict["imageName"] as? String
       {
-        
-        if let country = getCountry(name: countryName, from: countries) {
+        let getTheCountry = getCountry(name: countryName, from: countries)
+        if getTheCountry != nil {
           coins.append(Coin(name: coinName, imageName: coinImageName,
-                            country: country))
+                            country: myCountry))
         } else {
           countries.append(Country(name: countryName,
                                    flagImageName: countryFlagImageName))
           coins.append(Coin(name: coinName, imageName: coinImageName,
-                            country: country))
+                            country: myCountry))
         }
       }
     }
