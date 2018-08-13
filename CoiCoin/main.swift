@@ -77,8 +77,7 @@ func loadCoins(from fileName: String) -> [Coin] {
         } else {
           let country = Country(name: countryName,
                                 flagImageName: countryFlagImageName)
-          countries.append(Country(name: countryName,
-                                   flagImageName: countryFlagImageName))
+          countries.append(country)
           coins.append(Coin(name: coinName, imageName: coinImageName,
                             country: country))
         }
