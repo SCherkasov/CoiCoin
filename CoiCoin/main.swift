@@ -8,11 +8,11 @@
 import Foundation
 
 class Coin {
-
+  
   var name: String
   var imageName: String
   var country: Country
-
+  
   init(name: String, imageName: String, country: Country) {
     self.name = name
     self.imageName = imageName
@@ -21,10 +21,10 @@ class Coin {
 }
 
 class Country {
-
+  
   var name: String
   var flagImageName: String
-
+  
   init(name: String, flagImageName: String) {
     self.name = name
     self.flagImageName = flagImageName
@@ -52,19 +52,19 @@ func getCountry(name: String, from countries: [Country]) -> Country? {
       result = country
     }
   }
-
+  
   return result
 }
 
 func loadCoins(from fileName: String) -> ([Coin], [Country]) {
   var countries = [Country]()
   var coins = [Coin]()
-
+  
   if let myObjCNSDict = NSDictionary(contentsOfFile: fileName),
     let coinArray = myObjCNSDict["coins"] as? [[String: AnyObject]] {
-
+    
     for coinDict in coinArray {
-
+      
       if let coinName = coinDict["name"] as? String,
         let coinImageName = coinDict["imageName"] as? String,
         let countryDict = coinDict["country"] as? [String: String],
@@ -84,14 +84,12 @@ func loadCoins(from fileName: String) -> ([Coin], [Country]) {
       }
     }
   }
-//  print(countries)
-//  print(coins)
-
+  
   return (coins, countries)
 }
 
 func getCoins(forCountry country: Country, from coins: [Coin]) -> [Coin] {
- 
+  
   var result = [Coin]()
   
   for coin in coins {
@@ -105,21 +103,15 @@ func getCoins(forCountry country: Country, from coins: [Coin]) -> [Coin] {
 func getCoins(withCountryName countryName: String, from coins: [Coin],
               countries: [Country]) -> [Coin] {
   
-  return coins
+  if let country = getCountry(name: countryName, from: countries) {
+    
+    return getCoins(forCountry: country, from: coins)
+  }
+  return []
 }
 
 
 let (coins, countries) = loadCoins(from: "coins.plist")
-//let tuple = loadCoins(from: "coins.plist")
-//let coins2 = tuple.0
-//let countires2 = tuple.1
 
-//print(coins)
-
-if let  countryUkraine = getCountry(name: "Ukraine", from: countries) {
-
-  var x = getCoins(
-    forCountry: countryUkraine,
-    from: coins)
-  print(x)
-}
+let x = getCoins(withCountryName: "USA", from: coins, countries: countries)
+print(x)
