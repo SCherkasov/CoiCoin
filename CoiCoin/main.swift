@@ -56,7 +56,7 @@ func getCountry(name: String, from countries: [Country]) -> Country? {
   return result
 }
 
-func loadCoins(from fileName: String) -> [Coin] {
+func loadCoins(from fileName: String) -> ([Coin], [Country]) {
   var countries = [Country]()
   var coins = [Coin]()
 
@@ -84,22 +84,22 @@ func loadCoins(from fileName: String) -> [Coin] {
       }
     }
   }
-  print(countries)
-  print(coins)
+//  print(countries)
+//  print(coins)
 
-  return coins
+  return (coins, countries)
 }
 
 func getCoins(forCountry country: Country, from coins: [Coin]) -> [Coin] {
  
-  var coins = [Coin]()
+  var result = [Coin]()
   
   for coin in coins {
     if coin.country === country {
-      coins.append(contentsOf: [coin])
+      result.append(coin)
     }
   }
-  return coins
+  return result
 }
 
 func getCoins(withCountryName countryName: String, from coins: [Coin],
@@ -109,4 +109,17 @@ func getCoins(withCountryName countryName: String, from coins: [Coin],
 }
 
 
-loadCoins(from: "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist")
+let (coins, countries) = loadCoins(from: "coins.plist")
+//let tuple = loadCoins(from: "coins.plist")
+//let coins2 = tuple.0
+//let countires2 = tuple.1
+
+//print(coins)
+
+if let  countryUkraine = getCountry(name: "Ukraine", from: countries) {
+
+  var x = getCoins(
+    forCountry: countryUkraine,
+    from: coins)
+  print(x)
+}

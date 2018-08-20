@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		8A2B9B6B21126C8B00B4551A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2B9B6A21126C8B00B4551A /* main.swift */; };
+		8A5F4DA3212B5227008DF830 /* coins.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AC41F1B2118FAE90047B883 /* coins.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8A2B9B6521126C8B00B4551A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
 			files = (
+				8A5F4DA3212B5227008DF830 /* coins.plist in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
