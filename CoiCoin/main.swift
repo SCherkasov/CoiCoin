@@ -8,11 +8,11 @@
 import Foundation
 
 class Coin {
-  
+
   var name: String
   var imageName: String
   var country: Country
-  
+
   init(name: String, imageName: String, country: Country) {
     self.name = name
     self.imageName = imageName
@@ -21,10 +21,10 @@ class Coin {
 }
 
 class Country {
-  
+
   var name: String
   var flagImageName: String
-  
+
   init(name: String, flagImageName: String) {
     self.name = name
     self.flagImageName = flagImageName
@@ -52,24 +52,24 @@ func getCountry(name: String, from countries: [Country]) -> Country? {
       result = country
     }
   }
-  
+
   return result
 }
 
 func loadCoins(from fileName: String) -> [Coin] {
   var countries = [Country]()
   var coins = [Coin]()
-  
+
   if let myObjCNSDict = NSDictionary(contentsOfFile: fileName),
     let coinArray = myObjCNSDict["coins"] as? [[String: AnyObject]] {
-    
+
     for coinDict in coinArray {
-      
-      if let countryDict = coinDict["country"] as? [String: String],
+
+      if let coinName = coinDict["name"] as? String,
+        let coinImageName = coinDict["imageName"] as? String,
+        let countryDict = coinDict["country"] as? [String: String],
         let countryName = countryDict["name"],
-        let countryFlagImageName = countryDict["flagImageName"],
-        let coinName = coinDict["name"] as? String,
-        let coinImageName = coinDict["imageName"] as? String
+        let countryFlagImageName = countryDict["flagImageName"]
       {
         if let getTheCountry = getCountry(name: countryName, from: countries) {
           coins.append(Coin(name: coinName, imageName: coinImageName,
@@ -86,8 +86,28 @@ func loadCoins(from fileName: String) -> [Coin] {
   }
   print(countries)
   print(coins)
+
+  return coins
+}
+
+func getCoins(forCountry country: Country, from coins: [Coin]) -> [Coin] {
+ 
+  var coins = [Coin]()
+  var result = [Coin]()
+  
+  for coin in coins {
+    if coin.country == country {
+      coins = [coin]
+    }
+  }
+  return result
+}
+
+func getCoins(withCountryName countryName: String, from coins: [Coin],
+              countries: [Country]) -> [Coin] {
   
   return coins
 }
+
 
 loadCoins(from: "/Users/Stanislav_Cherkasov/Desktop/CoiCoin/CoiCoin/coins.plist")
