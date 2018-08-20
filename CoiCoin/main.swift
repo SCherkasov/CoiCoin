@@ -93,14 +93,13 @@ func loadCoins(from fileName: String) -> [Coin] {
 func getCoins(forCountry country: Country, from coins: [Coin]) -> [Coin] {
  
   var coins = [Coin]()
-  var result = [Coin]()
   
   for coin in coins {
-    if coin.country == country {
-      coins = [coin]
+    if coin.country === country {
+      coins.append(contentsOf: [coin])
     }
   }
-  return result
+  return coins
 }
 
 func getCoins(withCountryName countryName: String, from coins: [Coin],
