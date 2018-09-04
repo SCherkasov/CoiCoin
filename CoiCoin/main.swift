@@ -110,8 +110,25 @@ func getCoins(withCountryName countryName: String, from coins: [Coin],
   return []
 }
 
+//*****************************__task_7__***************************************
+
+func getCountries(for coins: [Coin]) -> [Country] {
+  var result = [Country]()
+  
+  for coin in coins {
+    if coin === coin.country {
+      result.append(coin.country)
+    }
+  }
+  return result
+}
+
+//******************************************************************************
 
 let (coins, countries) = loadCoins(from: "coins.plist")
 
 let x = getCoins(withCountryName: "USA", from: coins, countries: countries)
-print(x)
+//print(x)
+
+let y = getCountries(for: coins)
+print(y)
