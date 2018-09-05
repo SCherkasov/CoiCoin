@@ -112,14 +112,44 @@ func getCoins(withCountryName countryName: String, from coins: [Coin],
 
 //*****************************__task_7__***************************************
 
+func getMatchedCoins(for coinStorage: [Coin], coinList: [Coin]) -> [Coin] {
+  var result = [Coin]()
+  
+  for coinInList in coinList {
+    for coinInStorage in coinStorage {
+      if coinInList === coinInStorage {
+        result.append(coinInList)
+        
+      }
+    }
+  }
+  return result
+}
+
+func getMatchedByNamesCoins(
+  for coinStorage: [Coin],
+  coinNames: [String]) -> [Coin]
+{
+  var result = [Coin]()
+  
+  for coinName in coinNames {
+    for coinInStorage in coinStorage {
+      if coinName == coinInStorage.name {
+        result.append(coinInStorage)
+      }
+    }
+  }
+  
+  return result
+}
+
 func getCountries(for coins: [Coin]) -> [Country] {
   var result = [Country]()
   
   for coin in coins {
-    if coin === coin.country {
       result.append(coin.country)
     }
-  }
+  
   return result
 }
 
@@ -130,5 +160,8 @@ let (coins, countries) = loadCoins(from: "coins.plist")
 let x = getCoins(withCountryName: "USA", from: coins, countries: countries)
 //print(x)
 
-let y = getCountries(for: coins)
-print(y)
+let y = getMatchedCoins(for: coins, coinList: coins)
+//print(y)
+
+let z = getCountries(for: coins)
+print(z)
