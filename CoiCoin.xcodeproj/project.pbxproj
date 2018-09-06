@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8A2B9B6B21126C8B00B4551A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2B9B6A21126C8B00B4551A /* main.swift */; };
 		8A5F4DA3212B5227008DF830 /* coins.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AC41F1B2118FAE90047B883 /* coins.plist */; };
+		DF36D8642141AC9100257BD4 /* CoinStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF36D8632141AC9100257BD4 /* CoinStore.swift */; };
+		DF36D86E2141AD3200257BD4 /* CoiCoinTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF36D86D2141AD3200257BD4 /* CoiCoinTest.swift */; };
+		DF36D8742141AE4A00257BD4 /* CoinStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF36D8632141AC9100257BD4 /* CoinStore.swift */; };
+		DF36D8762141B16500257BD4 /* coins_test.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF36D8752141B16500257BD4 /* coins_test.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,10 +32,22 @@
 		8A2B9B6721126C8B00B4551A /* CoiCoin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoiCoin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2B9B6A21126C8B00B4551A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8AC41F1B2118FAE90047B883 /* coins.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = coins.plist; sourceTree = "<group>"; };
+		DF36D8632141AC9100257BD4 /* CoinStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinStore.swift; sourceTree = "<group>"; };
+		DF36D86B2141AD3200257BD4 /* CoiCoinTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoiCoinTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF36D86D2141AD3200257BD4 /* CoiCoinTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoiCoinTest.swift; sourceTree = "<group>"; };
+		DF36D86F2141AD3200257BD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF36D8752141B16500257BD4 /* coins_test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = coins_test.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8A2B9B6421126C8B00B4551A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF36D8682141AD3200257BD4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				8A2B9B6921126C8B00B4551A /* CoiCoin */,
+				DF36D86C2141AD3200257BD4 /* CoiCoinTest */,
 				8A2B9B6821126C8B00B4551A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				8A2B9B6721126C8B00B4551A /* CoiCoin */,
+				DF36D86B2141AD3200257BD4 /* CoiCoinTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,8 +80,19 @@
 			children = (
 				8A2B9B6A21126C8B00B4551A /* main.swift */,
 				8AC41F1B2118FAE90047B883 /* coins.plist */,
+				DF36D8632141AC9100257BD4 /* CoinStore.swift */,
 			);
 			path = CoiCoin;
+			sourceTree = "<group>";
+		};
+		DF36D86C2141AD3200257BD4 /* CoiCoinTest */ = {
+			isa = PBXGroup;
+			children = (
+				DF36D8752141B16500257BD4 /* coins_test.plist */,
+				DF36D86D2141AD3200257BD4 /* CoiCoinTest.swift */,
+				DF36D86F2141AD3200257BD4 /* Info.plist */,
+			);
+			path = CoiCoinTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +115,23 @@
 			productReference = 8A2B9B6721126C8B00B4551A /* CoiCoin */;
 			productType = "com.apple.product-type.tool";
 		};
+		DF36D86A2141AD3200257BD4 /* CoiCoinTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF36D8702141AD3200257BD4 /* Build configuration list for PBXNativeTarget "CoiCoinTest" */;
+			buildPhases = (
+				DF36D8672141AD3200257BD4 /* Sources */,
+				DF36D8682141AD3200257BD4 /* Frameworks */,
+				DF36D8692141AD3200257BD4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoiCoinTest;
+			productName = CoiCoinTest;
+			productReference = DF36D86B2141AD3200257BD4 /* CoiCoinTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -98,6 +144,9 @@
 				TargetAttributes = {
 					8A2B9B6621126C8B00B4551A = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					DF36D86A2141AD3200257BD4 = {
+						CreatedOnToolsVersion = 9.4;
 					};
 				};
 			};
@@ -114,16 +163,38 @@
 			projectRoot = "";
 			targets = (
 				8A2B9B6621126C8B00B4551A /* CoiCoin */,
+				DF36D86A2141AD3200257BD4 /* CoiCoinTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF36D8692141AD3200257BD4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF36D8762141B16500257BD4 /* coins_test.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A2B9B6321126C8B00B4551A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF36D8642141AC9100257BD4 /* CoinStore.swift in Sources */,
 				8A2B9B6B21126C8B00B4551A /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF36D8672141AD3200257BD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF36D8742141AE4A00257BD4 /* CoinStore.swift in Sources */,
+				DF36D86E2141AD3200257BD4 /* CoiCoinTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HH9AF9DGX8;
+				DEVELOPMENT_TEAM = PPZ9CD2Q45;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -257,7 +328,43 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HH9AF9DGX8;
+				DEVELOPMENT_TEAM = PPZ9CD2Q45;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		DF36D8712141AD3200257BD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PPZ9CD2Q45;
+				INFOPLIST_FILE = CoiCoinTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.igavrysh.CoiCoinTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		DF36D8722141AD3200257BD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PPZ9CD2Q45;
+				INFOPLIST_FILE = CoiCoinTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.igavrysh.CoiCoinTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -280,6 +387,15 @@
 			buildConfigurations = (
 				8A2B9B6F21126C8B00B4551A /* Debug */,
 				8A2B9B7021126C8B00B4551A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF36D8702141AD3200257BD4 /* Build configuration list for PBXNativeTarget "CoiCoinTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF36D8712141AD3200257BD4 /* Debug */,
+				DF36D8722141AD3200257BD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

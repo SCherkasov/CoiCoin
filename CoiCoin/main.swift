@@ -7,44 +7,6 @@
 
 import Foundation
 
-class Coin {
-  
-  var name: String
-  var imageName: String
-  var country: Country
-  
-  init(name: String, imageName: String, country: Country) {
-    self.name = name
-    self.imageName = imageName
-    self.country = country
-  }
-}
-
-class Country {
-  
-  var name: String
-  var flagImageName: String
-  
-  init(name: String, flagImageName: String) {
-    self.name = name
-    self.flagImageName = flagImageName
-  }
-}
-
-extension Country: CustomStringConvertible {
-  var description: String {
-    return "{country: \(self.name) flagImageName: \(self.flagImageName)}"
-  }
-}
-
-extension Coin: CustomStringConvertible {
-  var description: String {
-    return "{coin: \(self.name) "
-      + "imageName: \(self.imageName) "
-      + "country: \(country)}"
-  }
-}
-
 func getCountry(name: String, from countries: [Country]) -> Country? {
   var result: Country?
   for country in countries {

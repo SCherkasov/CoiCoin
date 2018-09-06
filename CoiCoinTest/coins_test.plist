@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>coins</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>1 cent</string>
+			<key>imageName</key>
+			<string>1_cent_image</string>
+			<key>country</key>
+			<dict>
+				<key>name</key>
+				<string>USA</string>
+				<key>flagImageName</key>
+				<string>usa_flag</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>50 cents</string>
+			<key>imageName</key>
+			<string>50_cents_image</string>
+			<key>country</key>
+			<dict>
+				<key>name</key>
+				<string>Ukraine</string>
+				<key>flagImageName</key>
+				<string>ukraine_flag</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>25 cents</string>
+			<key>imageName</key>
+			<string>25_cents_image</string>
+			<key>country</key>
+			<dict>
+				<key>name</key>
+				<string>Ukraine</string>
+				<key>flagImageName</key>
+				<string>ukraine_flag</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
